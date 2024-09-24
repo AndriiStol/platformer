@@ -13,7 +13,7 @@ public class Finish : MonoBehaviour
     private void Start()
     {
         finishSound = GetComponent<AudioSource>();
-        levelCompletePanel.SetActive(false); // Начально скрываем панель
+        levelCompletePanel.SetActive(false); 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,12 +27,11 @@ public class Finish : MonoBehaviour
 
             ShowLevelCompletePanel();
 
-            // Отключаем движение игрока после достижения финиша
+            
             collision.gameObject.GetComponent<PlayerMovement>().enabled = false;
 
             FindObjectOfType<LevelController>().OnLevelComplete();
-            // Загрузить следующий уровень или выполнить другие действия
-            // Можно вызвать метод для загрузки следующего уровня здесь
+
         }
     }
 
