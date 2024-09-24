@@ -28,8 +28,8 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
- [SerializeField] private float climbSpeed = 5f; // Скорость подъема по лестнице
-    private bool isClimbing = false; // Флаг для определения, поднимается ли игрок по лестнице
+ [SerializeField] private float climbSpeed = 5f; 
+    private bool isClimbing = false; 
 
     private void Update()
     {
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isClimbing)
         {
-            // Обработка подъема и спуска по лестнице
+            
             float dirY = joystick.Vertical;
             rb.velocity = new Vector2(rb.velocity.x, dirY * climbSpeed);
         }
@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Ladder"))
         {
-            // Если игрок находится на лестнице, включаем режим подъема
+
             isClimbing = true;
             rb.gravityScale = 0f;
         }
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Ladder"))
         {
-            // Если игрок покидает лестницу, выключаем режим подъема
+
             isClimbing = false;
             rb.gravityScale = 3f;
         }
