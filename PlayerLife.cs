@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private float fallDeathDistance = 10f;
-    [SerializeField] private AudioSource deathAudioSource; // Присоедините аудио источник к этому полю
+    [SerializeField] private AudioSource deathAudioSource; 
 
     private Animator anim;
     private Rigidbody2D rb;
@@ -37,14 +37,14 @@ public class PlayerLife : MonoBehaviour
         isDead = true;
         rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");
-        PlayDeathSound(); // Воспроизводим звук смерти
+        PlayDeathSound();
     }
 
     private void PlayDeathSound()
     {
         if (deathAudioSource != null)
         {
-            deathAudioSource.Play(); // Воспроизводим звук
+            deathAudioSource.Play(); 
         }
     }
 
